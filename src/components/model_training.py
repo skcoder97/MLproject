@@ -40,6 +40,8 @@ class ModelTraining:
             self.logger.info("Evaluating the model")
             y_train_pred = self.model.predict(self.X_train)
             y_test_pred = self.model.predict(self.X_test)
+            print(y_train_pred)
+            print(y_test_pred)
 
             train_rmse = mean_squared_error(self.y_train, y_train_pred, squared=False)
             test_rmse = mean_squared_error(self.y_test, y_test_pred, squared=False)

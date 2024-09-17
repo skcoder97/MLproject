@@ -5,7 +5,9 @@ import logging
 import os
 
 class DataIngestion:
-    def __init__(self, file_path):
+    def __init__(self, file_path=None):
+        if file_path is None:
+            file_path ='C:\\Users\\Shravani\\OneDrive\\Desktop\\Grad Projects\\mlproject\\notebook\\my_dataframe.csv'  # Provide a default path
         self.file_path = file_path
         self.logger = self.get_logger()
 
