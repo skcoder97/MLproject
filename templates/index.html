@@ -1,1 +1,147 @@
-<h1>Welcome to the home page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Prediction</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://source.unsplash.com/1600x900/?education,university');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            width: 360px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        h3 {
+            text-align: center;
+            color: #28a745;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            input[type="text"] {
+                font-size: 13px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Predict Admission Probability</h2>
+        <form action="/predict" method="POST">
+            <label for="gre_score">GRE Score:</label>
+            <input type="text" id="gre_score" name="gre_score" required placeholder="Enter GRE Score">
+
+            <label for="toefl_score">TOEFL Score:</label>
+            <input type="text" id="toefl_score" name="toefl_score" required placeholder="Enter TOEFL Score">
+
+            <label for="university_rating">University Rating:</label>
+            <input type="text" id="university_rating" name="university_rating" required placeholder="Enter Rating (1-5)">
+
+            <label for="sop_strength">SOP Strength:</label>
+            <input type="text" id="sop_strength" name="sop_strength" required placeholder="Enter SOP Strength (1-5)">
+
+            <label for="lor_strength">LOR Strength:</label>
+            <input type="text" id="lor_strength" name="lor_strength" required placeholder="Enter LOR Strength (1-5)">
+
+            <label for="cgpa">CGPA:</label>
+            <input type="text" id="cgpa" name="cgpa" required placeholder="Enter CGPA (0-10)">
+
+            <label for="research_experience">Research Experience (0 or 1):</label>
+            <input type="text" id="research_experience" name="research_experience" required placeholder="Enter 0 or 1">
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <h3>{{ prediction_text }}</h3>
+    </div>
+</body>
+</html>
